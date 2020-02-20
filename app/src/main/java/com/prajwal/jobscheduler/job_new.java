@@ -10,16 +10,17 @@ import java.util.logging.Logger;
 public class job_new extends JobService {
     @Override
     public boolean onStartJob(JobParameters jobParameters) {
-       // Toast.makeText(getApplicationContext(),
-         //       "MyJobService.onStartJob()",
-            //    Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),
+               "MyJobService.onStartJob()",
+                Toast.LENGTH_SHORT).show();
         Log.d("KRN","KRANTHU: ");
         /*
          * True - if your service needs to process
          * the work (on a separate thread).
          * False - if there's no more work to be done for this job.
          */
-        return false;
+
+        return true;
     }
 
     @Override
@@ -27,6 +28,7 @@ public class job_new extends JobService {
         Toast.makeText(this,
                 "MyJobService.onStopJob()",
                 Toast.LENGTH_SHORT).show();
-        return false;
+       // jobFinished(jobParameters,true);
+        return true; //true to reschedule
     }
 }
